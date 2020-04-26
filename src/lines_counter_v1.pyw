@@ -20,7 +20,7 @@ startPath = os.path.dirname(os.path.abspath(filename))
 with open("files_with_extensions.txt", "w", encoding="utf-8") as filewrite:
     for r, d, f in os.walk(startPath):
         for file in f:
-            if file.endswith(extension0) | file.endswith(extension1) | file.endswith(extension2)| file.endswith(extension3):
+            if file.endswith(extension0) | file.endswith(extension1) | file.endswith(extension2) | file.endswith(extension3):
 
                 if _platform == "linux" | _platform == "linux2":
                     ss = '/'
