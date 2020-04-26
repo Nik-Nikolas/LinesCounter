@@ -1,6 +1,8 @@
 #os for file system
 import os
 
+from sys import platform as _platform
+
 import fnmatch
 import inspect
 
@@ -8,7 +10,7 @@ files = 0
 lines = 0          
 
 extension  = '.cpp'
-extension2 = '.h'
+extension2 = '.h'	
 
 filename = inspect.getframeinfo(inspect.currentframe()).filename
 startPath = os.path.dirname(os.path.abspath(filename))
@@ -18,7 +20,10 @@ with open("files_with_extensions.txt", "w", encoding="utf-8") as filewrite:
         for file in f:
             if file.endswith(extension) | file.endswith(extension2):
 
-                ss = '\\'
+                if _platform == "linux" | _platform == "linux2":
+                    ss = '/'
+                elif _platform == "win32" | _platform == "win64":
+                    ss = '\\'
 
                 filePathAndName = r + ss + file
 
